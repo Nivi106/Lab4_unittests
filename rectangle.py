@@ -6,44 +6,43 @@ Created on Fri Nov 26 19:43:31 2021
 """
 
 import math
+from shape import Shape
 from point import Point
-class Rectangle(object):
-    topleftpoint: Point(10,20)
+
+class Rectangle(Shape):
+    topleftpoint: Point
     width:float
     height: float
-    def __init__(self,x,y):
-        self.x=x
-        self.y=y
-    def getters (self):
-        return self.x,self.y;
-    def setters(self,x,y):
-        self.x=x
-        self.y=y
+    def __init__(self,topleftpoint,width,height):
+        self.topleftpoint = topleftpoint
+        self.width=width
+        self.height=height
+    def getter (self):
+        return self.width,self.height;
+    def setter(self,topleftpoint,width,height):
+        self.topleftpoint = topleftpoint
+        self.width=width
+        self.height=height
     def getwidth (self):
-        return self.x;
-    def setwidth(self,x):
-        self.x=x
+        return self.width;
+    def setwidth(self,width):
+        self.width=width
     def getheight (self):
-        return self.y;
-    def setheight(self,y):
-        self.y=y
+        return self.height;
+    def setheight(self,height):
+        self.height=height
     def area(self):
-        a= self.getwidth()*self.getheight()
+        a=self.getwidth()*self.getheight()
         return a
     def perimeter(self):
         p= 2*(self.getwidth()+self.getheight()) 
         return p
     def contains(self,Point):
-        
-        if(Point[0]>10 and Point[0]<self.getwidth()+10 and Point[1]>20 and Point[1]<20+self.getheight() ):
-            return True
        
+       if(Point.x>self.topleftpoint[0] and Point.x<self.getwidth()+10 and Point.y>self.topleftpoint[1] and Point.y<20+self.getheight() ):
+            return True
 
-    def centroidx(self):
-        cx=self.getwidth()/2
-        return cx
-    def centroidy(self):
-        cy=self.getheight()/2
-        return cy  
+    def centroid(self):
+         return (self.topleftpoint[0]+(self.width/2), self.topleftpoint[1]+(self.height/2))  
     def tostring(self):
-        print("Rectangle:topleftpoint: {0},{1}, width: {2},height:{3}".format(self.x,self.y,self.getwidth(),self.getheight()))
+        print("Rectangle:topleftpoint: {0},{1}, width: {2},height:{3}".format(self.width,self.height,self.getwidth(),self.getheight()))

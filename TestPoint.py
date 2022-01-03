@@ -38,22 +38,21 @@ class TestPoint(unittest.TestCase):
         
     def test_set_distance(self):
         test_point  =  Point(15, 35)
-        distance = math.sqrt((10-test_point.getX())**2+(20-test_point.getY())**2)
-        self.assertEqual(distance,test_point.distance(10,20))         
+        self.assertEqual(15.811388300841896,test_point.distance(10,20))         
         
     def test_to_string(self):
         test_point  =  Point(15, 35)
         self.assertEqual('Point (15,35)',test_point.toString())  
 
     def test_getters(self):
-        test_point= Shape(10,'red','blue')
+        test_point  =  Point(15, 35)
+        test_point.setters(10, 'red', 'blue')
         self.assertEqual((10, 'red', 'blue'),test_point.getters())  
         
     def test_setters(self):
         
-        Shape.setters(self,20,'green','blue')
-        self.assertEqual((20,'green','blue'), Shape.getters(self))           
-        
+        Point.setters(self,20,'green','blue')
+        self.assertEqual((20,'green','blue'), Point.getters(self))  
         
         
 if __name__ == '__main__':

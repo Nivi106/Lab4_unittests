@@ -7,7 +7,6 @@ Created on Fri Nov 26 22:06:16 2021
 
 import math
 import random
-from point import Point
 class Shape(object):
     strokewidth: int;
     strokecolor: float;

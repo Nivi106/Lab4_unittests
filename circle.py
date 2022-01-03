@@ -6,31 +6,30 @@ Created on Fri Nov 26 19:43:55 2021
 """
 
 import math
+from shape import Shape
 from point import Point
-class Circle():
-    
-    centerpoint: Point(20,30)
+class Circle(Shape):
+    centerpoint: Point
     radius:float
-    def __init__(self,x,y):
-        self.x=x
-        self.y=y
-    def getters (self):
-        return self.x,self.y;
-    def setters(self,x,y):
-        self.x=x
-        self.y=y
-    def getradius(self):
-        return self.y;
-    def setradius(self,y):
-        self.y=y
+    def __init__(self,centerpoint,radius):
+        self.centerpoint=centerpoint
+        self.radius=radius
+    def getCenterPoint(self):
+        return self.centerpoint
+    def setCenterPoint(self,centerpoint):
+        self.centerpoint=centerpoint
+    def getRadius(self):
+        return self.radius;
+    def setRadius(self,radius):
+        self.radius=radius
     def area(self):
-       a= 3.142*(self.getradius())**2
+       a= 3.142*(self.getRadius())**2
        return a
     def perimeter(self):
-        p = 2*3.142*self.getradius()
+        p = 2*3.142*self.getRadius()
         return p
     def contains(self,Point):
-        if(Point[0]<2*self.getradius() and Point[1]<2*self.getradius()):
+        if(Point.x<2*self.getRadius() and Point.y<2*self.getRadius()):
             return True
     def tostring(self):
-        print("Circle: center: {0},{1},radius: {2}".format(self.x,self.y,self.getradius()))
+        print("Circle: center: {0},{1},radius: {2}".format(self.centerpoint,self.radius,self.getRadius()))

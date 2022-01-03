@@ -15,17 +15,17 @@ class TestRectangle(unittest.TestCase):
 
 
     def test_getters(self):
-        Rect =  Rectangle(15, 35)
-        self.assertEqual((15,35), Rect.getters())
+        Rect =  Rectangle((15, 35),10,20)
+        self.assertEqual((10,20), Rect.getter())
         
     def test_setters(self):
         
-        Rectangle.setters(self, 15,20)
-        self.assertEqual((15,20) , Rectangle.getters(self))    
+        Rectangle.setter(self, (15,20),10,20)
+        self.assertEqual((10,20) , Rectangle.getter(self))    
         
     def test_get_width(self):
-        Rect  = Rectangle(15,20)
-        self.assertEqual(15, Rect.getwidth())
+        Rect =  Rectangle((15, 35),10,20)
+        self.assertEqual(10, Rect.getwidth())
         
     def test_set_width(self):
         
@@ -33,7 +33,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(15, Rectangle.getwidth(self))  
         
     def test_get_height(self):
-        Rect  = Rectangle(15,20)
+        Rect =  Rectangle((15, 35),10,20)
         self.assertEqual(20, Rect.getheight())
         
     def test_set_height(self):
@@ -42,49 +42,41 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(15, Rectangle.getheight(self))      
         
     def test_set_contains(self):
-        x=Point(30,40)
-        y=Rectangle(5,5)
-        if(x.getX()>10 and x.getX()<y.getwidth()+10 and x.getY()>20 and x.getY()<20+y.getheight() ):
-           return True
-        z=(x.getX()>10 and x.getX()<y.getwidth()+10 and x.getY()>20 and x.getY()<20+y.getheight())
-
-        self.assertEqual(False,z)           
+        x=Point(5,5)
+        y=Rectangle((15, 35),10,20)
+        c=y.contains(x)
+        d=y.contains(x)
+        self.assertEqual(c,d)
+                  
         
     def test_area(self):
-        Rect  =  Rectangle(15, 35)
-        area = Rect.getwidth()*Rect.getheight()
-        self.assertEqual(area,Rect.area())         
+        Rect =  Rectangle((15, 35),10,20)
+        self.assertEqual(200,Rect.area())         
         
     def test_perimeter(self):
-        Rect  =  Rectangle(15, 35)
-        perimeter = 2*(Rect.getwidth()+Rect.getheight())
-        self.assertEqual(perimeter,Rect.perimeter()) 
+        Rect =  Rectangle((15, 35),10,20)
+        self.assertEqual(60,Rect.perimeter()) 
 
-    def test_set_centroidx(self):
-        Rect  =  Rectangle(15, 35)
-        cx = Rect.getwidth()/2
-        self.assertEqual(cx,Rect.centroidx())         
+    def test_set_centroid(self):
+        Rect =  Rectangle((15, 35),10,20)
+        self.assertEqual((20.0, 45.0),Rect.centroid())         
         
-    def test_set_centroidy(self):
-        Rect  =  Rectangle(15, 35)
-        cy = Rect.getheight()/2
-        self.assertEqual(cy,Rect.centroidy())         
-                
-            
+               
     def test_to_string(self):
-       test_rect  =  Rectangle(15, 35)
-       self.assertEqual((15,35),test_rect.getters())
-       self.assertAlmostEqual(15, test_rect.getwidth())
-       self.assertAlmostEqual(35, test_rect.getheight())
+        Rect =  Rectangle((15, 35),10,20)
+        c=Rect.tostring()
+        d=Rect.tostring()
+        self.assertEqual(c,d)
 
     def test_getters_shape(self):
-        test_rectangle= Shape(10,'red','blue')
-        self.assertEqual((10, 'red', 'blue'),test_rectangle.getters())  
+        rect =  Rectangle((15, 35),10,20)
+        rect.setters(10,'red','blue')
+        self.assertEqual((10,'red', 'blue'),rect.getters())  
         
     def test_setters_shape(self):
         
-        Shape.setters(self,20,'green','blue')
-        self.assertEqual((20,'green','blue'), Shape.getters(self))           
+        Rectangle.setters(self,20,'green','blue')
+        self.assertEqual((20,'green','blue'), Rectangle.getters(self))           
         
         
         

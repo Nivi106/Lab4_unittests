@@ -5,8 +5,8 @@ Created on Thu Nov 25 18:03:53 2021
 @author: Nivethitha
 """
 import math
-
-class Point(object):
+from shape import Shape
+class Point(Shape):
     def __init__(self,x,y):
         self.x=x
         self.y=y
