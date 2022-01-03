@@ -32,4 +32,4 @@ class Circle(Shape):
         if(Point.x<2*self.getRadius() and Point.y<2*self.getRadius()):
             return True
     def tostring(self):
-        print("Circle: center: {0},{1},radius: {2}".format(self.centerpoint,self.radius,self.getRadius()))
+        print("Circle: center: {0},radius: {1}".format(self.centerpoint,self.radius))

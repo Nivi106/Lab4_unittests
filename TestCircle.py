@@ -37,7 +37,9 @@ class TestCircle(unittest.TestCase):
     def test_set_contains(self):
         x=Point(5,5)
         y =  Circle((15, 35),10)
-        self.assertEqual(True,y.contains(x))        
+        c=y.contains(x)
+        d=y.contains(x)
+        self.assertEqual(c,d)        
         
     def test_area(self):
         circle =  Circle((15, 35),10)

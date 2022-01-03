@@ -45,4 +45,4 @@ class Rectangle(Shape):
     def centroid(self):
          return (self.topleftpoint[0]+(self.width/2), self.topleftpoint[1]+(self.height/2))  
     def tostring(self):
-        print("Rectangle:topleftpoint: {0},{1}, width: {2},height:{3}".format(self.width,self.height,self.getwidth(),self.getheight()))
+        print("Rectangle:topleftpoint: {0}, width: {1},height:{2}".format(self.topleftpoint,self.width,self.height))
