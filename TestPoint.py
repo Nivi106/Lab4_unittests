@@ -18,23 +18,24 @@ class TestPoint(unittest.TestCase):
         self.assertEqual(15, test_point.getX())
         
     def test_set_X(self):
-        
-        Point.setX(self, 15)
-        self.assertEqual(15, Point.getX(self))    
+        test_point  =  Point(15, 35)
+        test_point.setX(15)
+        self.assertEqual(15,test_point.getX())    
         
     def test_get_Y(self):
         test_point  =  Point(15, 35)
         self.assertEqual(35, test_point.getY())
         
     def test_set_Y(self):
-        
-        Point.setY(self, 15)
-        self.assertEqual(15, Point.getY(self))       
+        test_point  =  Point(15, 35)
+        test_point.setY(15)
+        self.assertEqual(15, test_point.getY())       
         
     def test_set_position(self):
+        test_point = Point(15, 35)
         x=5
         y=10
-        self.assertEqual((5,10),Point.setPosition(self,x,y))           
+        self.assertEqual((5,10),test_point.setPosition(x,y))           
         
     def test_set_distance(self):
         test_point  =  Point(15, 35)
@@ -50,9 +51,9 @@ class TestPoint(unittest.TestCase):
         self.assertEqual((10, 'red', 'blue'),test_point.getters())  
         
     def test_setters(self):
-        
-        Point.setters(self,20,'green','blue')
-        self.assertEqual((20,'green','blue'), Point.getters(self))  
+        test_point  =  Point(15, 35)
+        test_point.setters(20,'green','blue')
+        self.assertEqual((20,'green','blue'), test_point.getters())  
         
         
 if __name__ == '__main__':

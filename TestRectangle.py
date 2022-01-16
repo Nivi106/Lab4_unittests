@@ -16,21 +16,22 @@ class TestRectangle(unittest.TestCase):
 
     def test_getters(self):
         Rect =  Rectangle((15, 35),10,20)
-        self.assertEqual((10,20), Rect.getter())
+        self.assertEqual((15,35), Rect.getting())
         
     def test_setters(self):
-        
-        Rectangle.setter(self, (15,20),10,20)
-        self.assertEqual((10,20) , Rectangle.getter(self))    
-        
+        rect =  Rectangle((15, 35),10,20)
+        rect.setting((15,20))
+        self.assertEqual((15,20) , rect.getting())
+
+
     def test_get_width(self):
         Rect =  Rectangle((15, 35),10,20)
         self.assertEqual(10, Rect.getwidth())
         
     def test_set_width(self):
-        
-        Rectangle.setwidth(self, 15)
-        self.assertEqual(15, Rectangle.getwidth(self))  
+        rect =  Rectangle((15, 35),10,20)
+        rect.setwidth((15))
+        self.assertEqual(15, rect.getwidth())  
         
     def test_get_height(self):
         Rect =  Rectangle((15, 35),10,20)
@@ -38,15 +39,14 @@ class TestRectangle(unittest.TestCase):
         
     def test_set_height(self):
         
-        Rectangle.setheight(self, 15)
-        self.assertEqual(15, Rectangle.getheight(self))      
+        rect =  Rectangle((15, 35),10,20)
+        rect.setheight((15))
+        self.assertEqual(15, rect.getheight())    
         
     def test_set_contains(self):
         x=Point(5,5)
         y=Rectangle((15, 35),10,20)
-        c=y.contains(x)
-        d=y.contains(x)
-        self.assertEqual(c,d)
+        self.assertEqual(y.contains(x),'True')
                   
         
     def test_area(self):
@@ -63,10 +63,8 @@ class TestRectangle(unittest.TestCase):
         
                
     def test_to_string(self):
-        Rect =  Rectangle((15, 35),10,20)
-        c=Rect.tostring()
-        d=Rect.tostring()
-        self.assertEqual(c,d)
+        Rect =  Rectangle((15,35),10,20)
+        self.assertEqual('Rectangle:topleftpoint: (15, 35), width: 10,height:20',Rect.tostring())
 
     def test_getters_shape(self):
         rect =  Rectangle((15, 35),10,20)
@@ -74,9 +72,9 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual((10,'red', 'blue'),rect.getters())  
         
     def test_setters_shape(self):
-        
-        Rectangle.setters(self,20,'green','blue')
-        self.assertEqual((20,'green','blue'), Rectangle.getters(self))           
+        rect =  Rectangle((15, 35),10,20)
+        rect.setters(10,'red','blue')
+        self.assertEqual((10,'red','blue'), rect.getters())           
         
         
         

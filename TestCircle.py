@@ -20,26 +20,24 @@ class TestCircle(unittest.TestCase):
         self.assertEqual((15,35), circle.getCenterPoint())
         
     def test_setters(self):
-    
-        Circle.setCenterPoint(self, (15,20))
-        self.assertEqual((15,20) , Circle.getCenterPoint(self))    
+        circle =  Circle((15, 35),10)
+        circle.setCenterPoint((15,20))
+        self.assertEqual((15,20) , circle.getCenterPoint())    
         
     def test_get_radius(self):
         circle =  Circle((15, 35),10)
         self.assertEqual(10, circle.getRadius())
         
     def test_set_radius(self):
-        
-        Circle.setRadius(self, 10)
-        self.assertEqual(10, Circle.getRadius(self))
+        circle =  Circle((15, 35),10)
+        circle.setRadius(20)
+        self.assertEqual(20, circle.getRadius())
         
            
     def test_set_contains(self):
         x=Point(5,5)
         y =  Circle((15, 35),10)
-        c=y.contains(x)
-        d=y.contains(x)
-        self.assertEqual(c,d)        
+        self.assertEqual(y.contains(x),'True')        
         
     def test_area(self):
         circle =  Circle((15, 35),10)
@@ -51,10 +49,8 @@ class TestCircle(unittest.TestCase):
                 
             
     def test_to_string(self):
-        circle =  Circle((15, 35),10)
-        c=circle.tostring()
-        d=circle.tostring()
-        self.assertEqual(c,d)
+        circle = Circle((15, 35),10)
+        self.assertEqual('Circle: center: (15, 35),radius: 10',circle.tostring())
 
     def test_getters_shape(self):
         circle =  Circle((15, 35),10)
@@ -62,8 +58,9 @@ class TestCircle(unittest.TestCase):
         self.assertEqual((10, 'red', 'blue'),circle.getters())  
         
     def test_setters_shape(self):
-        Circle.setters(self,20,'green','blue')
-        self.assertEqual((20,'green','blue'), Circle.getters(self))  
+        circle =  Circle((15, 35),10)
+        circle.setters(10, 'red', 'blue')
+        self.assertEqual((10,'red','blue'), circle.getters())  
         
         
 if __name__ == '__main__':
